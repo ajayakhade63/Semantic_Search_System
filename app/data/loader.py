@@ -1,29 +1,20 @@
-import os
+from sklearn.datasets import fetch_20newsgroups
+import pandas as pd
 
-def load_dataset(data_dir="dataset/20_newsgroups"):
+def load_dataset():
 
-    documents = []
-    labels = []
+    newsgroups = fetch_20newsgroups(
+        subset="all",
+        remove=("headers", "footers", "quotes")
+    )
 
-    categories = os.listdir(data_dir)
+    texts = newsgroups.data
+    labels = newsgroups.target
+    categories = newsgroups.target_names
 
-    for category in categories:
+    df = pd.DataFrame({
+        "text": texts,
+        "label": labels
+    })
 
-        category_path = os.path.join(data_dir, category)
-
-        if not os.path.isdir(category_path):
-            continue
-
-        for file in os.listdir(category_path):
-
-            file_path = os.path.join(category_path, file)
-
-            try:
-                with open(file_path, "r", encoding="latin1") as f:
-                    text = f.read()
-                    documents.append(text)
-                    labels.append(category)
-            except:
-                continue
-
-    return documents, labels
+    return df, categories
