@@ -17,4 +17,6 @@ def load_dataset():
         "label": labels
     })
 
+    df["category"] = df["label"].apply(lambda x: categories[x])
+
     return df, categories
