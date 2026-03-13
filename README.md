@@ -39,37 +39,7 @@ Fuzzy Clustering Analysis
    ↓
 Return Result + Cache Storage
 
-Project Structure
 
-semantic-search-system
-│
-├── app
-│   ├── api
-│   │   └── main.py
-│   │
-│   ├── cache
-│   │   ├── semantic_cache.py
-│   │   └── cache_stats.py
-│   │
-│   ├── clustering
-│   │   ├── fuzzy_cluster.py
-│   │   └── cluster_analysis.py
-│   │
-│   ├── data
-│   │   ├── loader.py
-│   │   └── preprocessing.py
-│   │
-│   ├── embeddings
-│   │   └── embedding_model.py
-│   │
-│   ├── config.py
-│   └── main.py
-│
-├── dataset
-├── notebooks
-├── Dockerfile
-├── requirements.txt
-└── README.md
 
 Dataset
 The project uses the 20 Newsgroups dataset.
